@@ -1,0 +1,52 @@
+{
+  "name": "urbanoutfitters-reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loud-neighborzzz/urbanoutfitters-reviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loud-neighborzzz/urbanoutfitters-reviews/issues"
+  },
+  "homepage": "https://github.com/loud-neighborzzz/urbanoutfitters-reviews#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.8.0",
+    "react-hot-loader": "^4.12.1",
+    "react-test-renderer": "^16.8.6",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.15.0",
+    "faker": "^4.1.0",
+    "fetch": "^1.1.0",
+    "jquery": "^3.1.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.9.6",
+    "nodemon": "^1.19.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "request": "^2.81.0"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
+  }
+}
