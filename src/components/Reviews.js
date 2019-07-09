@@ -1,6 +1,7 @@
 import React , { Component }from 'react'
 import Reviews_List from './Reviews_List/Reviews_List'
 import Info_Bar from './Info_Bar/Info_Bar';
+import Write_Review from './Write_Review/Write_Review';
 
 class Reviews extends Component {
   constructor(props) {
@@ -35,6 +36,7 @@ class Reviews extends Component {
               <h5>Reviews</h5>
               <Info_Bar reviews={this.state.reviews} />
               <Reviews_List reviews={this.state.reviews}/>
+              <Write_Review />
             </div>
           )}
       </div>

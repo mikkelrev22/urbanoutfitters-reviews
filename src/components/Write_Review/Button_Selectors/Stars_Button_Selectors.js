@@ -1,0 +1,34 @@
+import React, { Component } from 'react'
+import StarRatings from 'react-star-ratings';
+ 
+class Stars_Button_Selectors extends Component {
+    constructor(props) {
+      super(props)
+
+      this.state = {
+        rating: 0
+      }
+    }
+    changeRating( newRating, name ) {
+      this.setState({
+        rating: newRating
+      }, () => this.props.handleInput('stars', this.state.rating));
+    }
+    render() {
+      return (
+        <div className="overall-rating">
+            <p>Overall Rating</p>
+            <StarRatings
+                rating={this.state.rating}
+                starRatedColor="black"
+                changeRating={this.changeRating.bind(this)}
+                numberOfStars={5}
+                name='rating'
+                starHoverColor="black"
+            />
+        </div>
+      );
+    }
+}
+
+export default Stars_Button_Selectors

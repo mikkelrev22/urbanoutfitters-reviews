@@ -25,8 +25,8 @@ const Reviews_List = (props) => {
                                 <p>{r.title}</p>
                                 <p className="grey">{r.body}</p>
                                 <p className="grey"><span className="bold">Fit: </span >{r.fit}</p>
-                                <p className="grey"><span className="bold">Fit: </span>{r.sizePurchased}</p>
-                                <p className="grey"><span className="bold">Fit: </span>{r.sizeNormalyWorn}</p>
+                                <p className="grey"><span className="bold">Size Purchased: </span>{r.sizePurchased}</p>
+                                <p className="grey"><span className="bold">Size Normaly Worn: </span>{r.sizeNormalyWorn}</p>
                                 <br></br>
                                 <Recommended recomend={r.recommended}/>
                             </div>

@@ -6,8 +6,8 @@ const Recommended = (props) => {
         <div>
             {recommended ? (
                 <p className="grey"><span className="bold">Yes, </span>I recommended this product</p>
-            ) : (
-                <p className="grey"><span className="bold">No, </span>I did not recommended this product</p>
+            ):(
+                <p className="grey"><span className="bold">No, </span>I do not recommended this product</p>
             )}
         </div>
     )
