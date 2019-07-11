@@ -15,7 +15,6 @@ exports.GenerateJSON = () => {
     for (let i = 0; i < 100; i++) {
         for (let r = 0; r < 3; r++) {
             reviewsJSON.push({
-                reviewId: id,
                 itemId: i,
                 itemName: faker.commerce.productName(),
                 username: faker.name.findName(),

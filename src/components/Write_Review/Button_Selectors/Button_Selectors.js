@@ -6,7 +6,13 @@ import Recommend_Button_Selectors from './Recommend_Button_Selectors';
 const Button_Selectors = (props) => (
     <div className="button-selectors">
         <Stars_Button_Selectors handleInput={props.handleInput}/>
+        <br></br>
+        <br></br>
+        <p>Size & Fit</p>
+        <br></br>
         <Fit_Button_Selectors handleInput={props.handleInput}/>
+        <br></br>
+        <br></br>
         <Recommend_Button_Selectors handleInput={props.handleInput}/>
     </div>
 )

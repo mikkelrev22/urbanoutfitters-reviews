@@ -10,9 +10,16 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/reviews/:id', (req, res) => {
-    Reviews.find({itemId: req.params.id}, (err, reviews) => {
+    Reviews.find({itemId: req.params.id}).sort({date: -1}).exec((err, reviews) => {
         if (err) return res.status(500).send(err)
         res.status(200).send(reviews)
+    })
+})
+
+app.post('/reviews/', (req, res) => {
+    Reviews.create(req.body, (err, response) => {
+        if (err) return res.status(500).send(err)
+        res.status(200).send(response)
     })
 })
 

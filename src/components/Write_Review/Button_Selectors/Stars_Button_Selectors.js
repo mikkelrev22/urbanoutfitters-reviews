@@ -17,6 +17,7 @@ class Stars_Button_Selectors extends Component {
     render() {
       return (
         <div className="overall-rating">
+            <br></br>
             <p>Overall Rating</p>
             <StarRatings
                 rating={this.state.rating}
@@ -25,6 +26,8 @@ class Stars_Button_Selectors extends Component {
                 numberOfStars={5}
                 name='rating'
                 starHoverColor="black"
+                starDimension='37px'
+                starSpacing='0px'
             />
         </div>
       );

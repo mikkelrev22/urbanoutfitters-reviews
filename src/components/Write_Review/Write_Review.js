@@ -25,6 +25,7 @@ class Write_Review extends Component {
         }
         this.handleInput = this.handleInput.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.verrifyInput = this.verrifyInput.bind(this)
     }
     handleInput(key, value) {
         this.setState({
@@ -32,17 +33,37 @@ class Write_Review extends Component {
         })
     }
     handleSubmit(form) {
-        //here I need to be able to asynchonously add all my form input
-        //to the state, and then check if all the info has been filled out
-        //if it has i need to make a post request otherwise alert the user
-        for (let e in form) {
-            this.handleInput(e, form[e])
+        const { username, location, age, height, title, 
+            body, sizePurchased, sizeNormalyWorn} = form
+        this.setState({
+            itemId: this.props.itemId,
+            itemName: this.props.itemName,
+            username: username,
+            location: location,
+            age: age,
+            height: height,
+            title: title,
+            body: body,
+            sizePurchased: sizePurchased,
+            sizeNormalyWorn: sizeNormalyWorn,
+            date: new Date()   
+        }, () => this.verrifyInput())
+    }
+    verrifyInput() {
+        for (let e in this.state) {
+            console.log(e,this.state[e])
+            if (this.state[e].length === 0) return alert('please fill out all fields')
         }
+        this.props.handleSubmitReview(this.state)
     }
     render() {
         return (
             <div className="write-review">
-               <Button_Selectors handleInput={this.handleInput}/>  
+                <h2>Write a Review</h2>
+                <p className="row">{this.props.itemName}</p>
+               <Button_Selectors handleInput={this.handleInput}/> 
+               <br></br> 
+               <br></br>
                <Form_Review handleSubmit={this.handleSubmit} />
             </div>
         )
