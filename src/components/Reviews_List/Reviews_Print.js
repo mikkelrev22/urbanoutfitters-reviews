@@ -2,16 +2,15 @@ import React from 'react'
 import Stars from './Stars_Reviews_List';
 import Recommended from './Recomended_Reviews_List';
 const dateFormat = require('dateformat');
-const now = new Date();
 
 const Review_Print = (props) => {
     return (
         <ul className="reviews-list">
             <div className="scroll-reviews">
-                {props.renderNextButton && 
-                    <button onClick={props.handleNext}>{'>'}</button>}
                 {props.renderPreviousButton &&
                     <button onClick={props.handlePrevious}>{'< '}</button>}
+                {props.renderNextButton && 
+                    <button onClick={props.handleNext}>{'> '}</button>}
             </div>
             {
                 props.reviews.map((r, i) => {
@@ -34,7 +33,7 @@ const Review_Print = (props) => {
                                 <p className="grey"><span className="bold">Size Purchased: </span>{r.sizePurchased}</p>
                                 <p className="grey"><span className="bold">Size Normaly Worn: </span>{r.sizeNormalyWorn}</p>
                                 <br></br>
-                                <Recommended recomend={r.recommended}/>
+                                <Recommended recommended={r.recommended}/>
                                 <br></br>
                             </div>
                             <div className="border-bottom"></div>

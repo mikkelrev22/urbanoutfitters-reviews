@@ -2,7 +2,7 @@ const { Reviews } = require('../index')
 const { GenerateJSON } = require('./GenerateJSON')
 
 exports.SeedDB = () => {
-    Reviews.create(GenerateJSON(), (err, data) => {
+    Reviews.create(GenerateJSON(100, 3), (err, data) => {
         if (err) return console.log(err)
         console.log(data)
     })
@@ -22,5 +22,5 @@ exports.WhipeDB = () => {
     })
 }
 // console.log(this.WhipeDB())
-// console.log(this.SeedDB())
+console.log(this.SeedDB())
 // console.log(this.GetAll())

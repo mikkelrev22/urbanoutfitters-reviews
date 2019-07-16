@@ -5,19 +5,21 @@ class Stars_Info_Bar extends Component {
     constructor(props) {
         super(props)
     }
-    getAvgRating () {
-        const starsArr = this.props.reviews.map(e => e.stars)
-        return starsArr.reduce((a,b) => a + b, 0) / starsArr.length 
+    getAvgRating (reviews) {
+        const starsArr = reviews.map(e => e.stars)
+        const avg = starsArr.reduce((a,b) => a + b, 0) / starsArr.length 
+        return Number(avg.toFixed(1))
     }
     render() {
       const { reviews } = this.props
+      const avgRating = reviews.length === 0 ? 0 : this.getAvgRating(reviews)    
       return (
         <div className="box">
           <p className="grey">
-          {this.getAvgRating().toFixed(1)} | {reviews.length} Reviews
+          {avgRating} | {reviews.length} Reviews
           </p>
           <StarRatings
-            rating={this.getAvgRating()}
+            rating={avgRating}
             starRatedColor="black"
             numberOfStars={5}
             name='rating'

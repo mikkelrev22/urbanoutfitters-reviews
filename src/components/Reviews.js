@@ -2,45 +2,45 @@ import React , { Component }from 'react'
 import Info_Bar from './Info_Bar/Info_Bar';
 import Write_Review from './Write_Review/Write_Review';
 import Reviews_List from './Reviews_List/Reviews_List';
+import { fetch } from 'whatwg-fetch'
 
 class Reviews extends Component {
   constructor(props) {
     super(props) 
     this.state = {
-      loading: true,
-      itemId: 2
+      itemName: '',
+      itemId: '',
+      reviews: []
     }
+    this.getReviews = this.getReviews.bind(this)
   }
   componentDidMount() {
     this.getReviews()
   }
   getReviews() {
     console.log('fetching reviews')
-    fetch(`http://localhost:3000/reviews/${this.state.itemId}`)
-    .then((reviews) => reviews.json())
-    .then((reviews) => this.setState({
-      'reviews': reviews,
-      'loading': false
+    fetch(`http://localhost:3000/reviews/${window.location.pathname.slice(1)}`)
+    .then((item) => item.json())
+    .then((item) => this.setState({
+      reviews: item[0].reviews.reverse(), 
+      itemId: item[0].itemId,
+      itemName: item[0].itemName,
     }))
   }
-  handleSubmitReview(reviewObj) {
-    fetch(`http://localhost:3000/reviews/`, {
-      method: 'POST',
+  handleSubmitReview(newReview) {
+
+    fetch(`http://localhost:3000/reviews${this.state.itemId}`, {
+      method: 'PATCH',
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(reviewObj)
-    })
-    .then(() => this.getReviews())
+      body: JSON.stringify(newReview)
+    }).then(() => this.getReviews())
   }
   render() {
-    const { loading } = this.state
     return (
       <div className="reviews-body">
-        {loading ? (
-            <div></div>
-          ) : (
             <div>
               <br></br>
               <h5>Reviews</h5>
@@ -48,11 +48,10 @@ class Reviews extends Component {
               <Reviews_List reviews={this.state.reviews}/>
               <Write_Review 
                 itemId={this.state.itemId}
-                itemName={this.state.reviews[0].itemName} 
+                itemName={this.state.itemName} 
                 handleSubmitReview={this.handleSubmitReview.bind(this)}
               />
             </div>
-          )}
       </div>
     )
   }

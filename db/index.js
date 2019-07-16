@@ -2,9 +2,17 @@ const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/reviews', {useMongoClient: true})
 
 const reviewSchema = new mongoose.Schema({
-    reviewId: Number,
     itemId: Number,
     itemName: String,
+    reviews: Array
+})
+
+exports.Reviews = mongoose.model('Reviews', reviewSchema)
+
+/*
+**** DATA IN REVIEWS ****
+
+    reviewId: Number,
     username: String,
     location: String,
     age: String,
@@ -17,6 +25,5 @@ const reviewSchema = new mongoose.Schema({
     recommended: Boolean,
     date: Date,
     stars: Number
-})
-
-exports.Reviews = mongoose.model('Reviews', reviewSchema)
+    
+*/

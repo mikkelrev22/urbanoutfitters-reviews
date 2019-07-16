@@ -32,7 +32,7 @@ class Height_Select extends Component {
                         name="feet"
                         onChange={this.handleChangeHeight}
                     >
-                        <option default>Select</option>
+                        <option default>Feet</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
                         <option value="6">6</option>
@@ -41,7 +41,7 @@ class Height_Select extends Component {
                         name="inches"
                         onChange={this.handleChangeHeight}
                     >
-                        <option default>Select</option>
+                        <option default>Inches</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

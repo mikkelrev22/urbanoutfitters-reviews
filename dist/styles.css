@@ -37,6 +37,8 @@ div {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    margin-left: 1rem;
+    margin-right: 1rem;
     font-weight: bold;
 }
 
@@ -88,6 +90,7 @@ div {
     max-width: 1441px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1rem;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(226, 226, 226);
 }
@@ -164,11 +167,33 @@ div {
     font-weight: bold;
 }
 
-.button-selectors button:focus {
+.button-selectors .selected {
     outline: 0;
     color: black;
     border-color: black;
     font-weight: bold;
+}
+
+.write-review .item-name {
+    width: 98%;
+    margin-bottom: 0;
+    font: 700 1.1rem/ helvetica,arial,sans-serif;
+    letter-spacing: .04rem;
+    color: #222;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 10px;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+
 }
 
 .form-review {
@@ -231,4 +256,8 @@ div {
     color: black;
     border-color: black;
     font-weight: bold;
+}
+
+button:focus {
+    outline: 0;
 }
