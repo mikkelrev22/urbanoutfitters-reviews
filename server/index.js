@@ -3,9 +3,10 @@ const bodyParser = require('body-parser')
 const app = express()
 const { Reviews } = require('../db/index')
 const path = require('path')
+const cors = require('cors')
 
-const port = 3000
-
+const port = 3456
+app.use(cors())
 app.use(express.static(path.join(__dirname, '..', 'dist')))
 app.use(bodyParser.json())
 
